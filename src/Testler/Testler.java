@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Testler extends BaseDriver {
 
-    @Test
+    @Test(priority = 1)   //Tuğçe
     public void RegisterTesti() throws IOException {
         Elements elements = new Elements();
         elements.register.click();
@@ -40,7 +40,7 @@ public class Testler extends BaseDriver {
         FileUtils.copyFile(hafizadakiEkranGoruntusu, new File(path));
     }
 
-    @Test
+    @Test(priority = 2)  //Tuğçe
     public void NegatifRegisterTesti() throws IOException {
         Elements elements = new Elements();
         elements.register.click();
@@ -60,7 +60,7 @@ public class Testler extends BaseDriver {
         FileUtils.copyFile(hafizadakiEkranGoruntusu, new File(path));
     }
 
-    @Test
+    @Test(priority = 3)  //Tuğçe
     public void LoginTesti() {
         Elements elements = new Elements();
         elements.login.click();
@@ -71,7 +71,42 @@ public class Testler extends BaseDriver {
 
     }
 
-    @Test
+    @Test(priority = 4)    //yiğithan
+    public void NegatifLoginTesti() {
+        Elements elements = new Elements();
+        elements.login.click();
+        elements.email.sendKeys("test@gmail.com");
+        elements.password.sendKeys("123123");
+        elements.loginButton.click();
+        Assert.assertTrue(elements.negativeLoginMessage.getText().equals("Login was unsuccessful. Please correct the errors and try again."), "Hatalı login");
+
+    }
+
+    @Test(priority = 5)       //Sevgi
+    public void OrderTest(){
+
+        //    Senaryo:
+//
+// 1. Siteye gidin
+// 2. Login olun
+// 3. Computers - Notebooks menüsüne gidin
+// 4. "14.1-inch Laptop" ürününe tıklayın
+// 5. "Add to Cart" butonuna tıklayın
+// 6. Ürünün sepete eklendiğini doğrulayın
+// 7. "Shopping cart" butonuna tıklayın
+// 8. Ürünün sepette göründüğünü doğrulayın
+// 9. "I agree with the terms of service" checkbox'ını işaretleyin
+// 10. "Checkout" butonuna tıklayın
+// 11. Billing Address formunu doldurun
+// 12. "Continue" -> "Shipping Method" -> "Payment Method" -> "Confirm Order"
+// 13. "Your order has been successfully processed!" mesajını doğrulayın
+// 14. Screenshot alın
+
+    }
+
+
+
+    @Test(priority = 6)      //Tuğçe
     public void UrunFiltreVeSiralama() {
         Elements elements = new Elements();
         LoginTesti();
@@ -93,6 +128,34 @@ public class Testler extends BaseDriver {
             Assert.assertTrue(Double.parseDouble(prices.get(i).getText()) == (Double) sirali.get(i), "HATA");
         }
     }
+
+
+    @Test(priority = 7)   //Burak
+    public void urunKarşılaştırma() {
+
+      //  Senaryo:
+
+      //  1. "Books" kategorisine gidin
+        //  2. İki farklı ürün için "Add to compare list" butonuna tıklayın
+        //  3. "Compare products list" sayfasına gidin
+        //  4. Eklenen iki ürünün listede göründüğünü doğrulayın
+
+    }
+
+    @Test(priority = 8)    //Zeynep
+    public void WislistTest(){
+
+     //  Senaryo:
+     //  1. Login olun
+     //  2. "Apparel & Shoes" kategorisine gidin
+     //  3. Bir ürünü "Add to wishlist" ile ekleyin
+     //  4. "Wishlist" sayfasına gidin
+     //  5. Ürünün wishlist'te göründüğünü doğrulayın
+
+    }
+
+
+
 
 
 }
