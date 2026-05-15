@@ -47,9 +47,9 @@ public class BaseDriver {
 //
 //    }
 
-//    @AfterClass
-//    public void TearDown() {
-//        MyFunc.bekle(3);
-//        driver.quit();
-//    }
+    @AfterClass
+    public void TearDown() {
+        MyFunc.bekle(3);
+        driver.quit();
+    }
 }
