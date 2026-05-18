@@ -1,9 +1,12 @@
 package Testler;
 
 import Utility.BaseDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class Elements {
     public Elements() {
@@ -40,6 +43,8 @@ public class Elements {
     public WebElement books;
     @FindBy(id = "products-orderby")
     public WebElement sortBy;
+    @FindBy(xpath = "//span[@class='price actual-price']")
+    public List<WebElement> prices ;
 
 
 }
