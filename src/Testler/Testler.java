@@ -77,20 +77,16 @@ public class Testler extends BaseDriver {
         LoginTesti();
         elements.books.click();
         Select sort = new Select(elements.sortBy);
-        sort.selectByVisibleText("Price: Low to High");
-        List<WebElement> prices = driver.findElements(By.xpath("//span[@class='price actual-price']"));
-        ArrayList sirali = new ArrayList<>();
-        for (WebElement p : prices) {
+        sort.selectByVisibleText("Price: Low to High");  //3 5 8 7
+
+        ArrayList<Double> sirali = new ArrayList<>();
+        for (WebElement p : elements.prices) {
             sirali.add(Double.parseDouble(p.getText()));
         }
-        Collections.sort(sirali);
+        Collections.sort(sirali); // 3,5,7,8
 
-        for (int i = 0; i < prices.size(); i++) {
-        //  System.out.println(Double.parseDouble(prices.get(i).getText()));
-        //  System.out.println("------------------------------");
-        //  System.out.println(sirali.get(i));
-
-            Assert.assertTrue(Double.parseDouble(prices.get(i).getText()) == (Double) sirali.get(i), "HATA");
+        for (int i = 0; i < elements.prices.size(); i++) {
+            Assert.assertTrue(Double.parseDouble(elements.prices.get(i).getText()) == sirali.get(i), "HATA");
         }
     }
 
