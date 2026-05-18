@@ -39,6 +39,8 @@ public class Elements {
     public WebElement loginButton;
     @FindBy(linkText = "Log out")
     public WebElement logout;
+    @FindBy(xpath = "//form/div[1]/div/span")
+    public WebElement negativeLoginMessage;
     @FindBy(linkText = "Books")
     public WebElement books;
     @FindBy(id = "products-orderby")
