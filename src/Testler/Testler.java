@@ -24,7 +24,7 @@ public class Testler extends BaseDriver {
         elements.gender.click();
         elements.firstName.sendKeys("Test");
         elements.lastName.sendKeys("Kullanıcısı");
-        elements.email.sendKeys("testkullanici"+dt.format(format)+"@gmail.com");
+        elements.email.sendKeys("testkullanici" + dt.format(format) + "@gmail.com");
         elements.password.sendKeys("123123");
         elements.confirmPassword.sendKeys("123123");
         elements.registerButton.click();
@@ -158,9 +158,25 @@ public class Testler extends BaseDriver {
         LoginOl();
         //  Senaryo:
         //  1. "Books" kategorisine gidin
+        elements.books.click();
+
         //  2. İki farklı ürün için "Add to compare list" butonuna tıklayın
+        elements.book1.click();
+        elements.addToCompareList.click();
+        driver.navigate().back();
+        driver.navigate().back();
+        elements.book2.click();
+        elements.addToCompareList.click();
+
         //  3. "Compare products list" sayfasına gidin
+
         //  4. Eklenen iki ürünün listede göründüğünü doğrulayın
+        for (WebElement l : elements.listItems) {
+            System.out.println(l.getText());
+        }
+        Assert.assertEquals(!elements.listItems.isEmpty(), "True", "Hata!..");
+
+
     }
 
     @Test(priority = 8)    //Zeynep

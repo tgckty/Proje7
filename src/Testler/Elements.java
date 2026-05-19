@@ -46,7 +46,7 @@ public class Elements {
     @FindBy(id = "products-orderby")
     public WebElement sortBy;
     @FindBy(xpath = "//span[@class='price actual-price']")
-    public List<WebElement> prices ;
+    public List<WebElement> prices;
 
     // sevgi
     @FindBy(linkText = "Computers")
@@ -101,9 +101,20 @@ public class Elements {
     public WebElement infoContainer;
     @FindBy(xpath = "  //*[@id='confirm-order-buttons-container']/input")
     public WebElement confirmOrder;
-    @FindBy( css= "div[class='title']>strong")
+    @FindBy(css = "div[class='title']>strong")
     public WebElement ekranYazi;
 
+    // Buraks elements
+    @FindBy(linkText = "Books")
+    public WebElement Books;
+    @FindBy(css = "div[class='item-box']:nth-child(1) img")
+    public WebElement book1;
+    @FindBy(xpath = "//input[@value='Add to compare list']")
+    public WebElement addToCompareList;
+    @FindBy(css = "div[class='item-box']:nth-child(2) img")
+    public WebElement book2;
+    @FindBy(css = "[class='overview']>td+td")
+    public List<WebElement> listItems;
 
 
 }
