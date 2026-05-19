@@ -1,9 +1,8 @@
 package Utility;
 
 import Testler.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,7 +10,11 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,16 +39,23 @@ public class BaseDriver {
         driver.get("https://demowebshop.tricentis.com/");
     }
 
-//    public void LoginTesti() {
-//
-//        Elements elements=new Elements();
-//        elements.login.click();
-//        elements.email.sendKeys("testkullanici1@gmail.com");
-//        elements.password.sendKeys("123123");
-//        elements.loginButton.click();
-//        Assert.assertTrue(elements.logout.getText().equals("Log out"),"Hatalı login");
-//
-//    }
+    public void LoginOl() {
+
+        Elements elements = new Elements();
+        elements.login.click();
+        elements.email.sendKeys("testkullanici1@gmail.com");
+        elements.password.sendKeys("123123");
+        elements.loginButton.click();
+    }
+
+    public void EkranGoruntusuAl() throws IOException {
+        LocalDateTime dt = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy_hh-mm");
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File hafizadakiEkranGoruntusu = ts.getScreenshotAs(OutputType.FILE);
+        String path = "ekranGoruntuleri/Screenshot_" + dt.format(format) + ".jpg";
+        FileUtils.copyFile(hafizadakiEkranGoruntusu, new File(path));
+    }
 
     @AfterClass
     public void TearDown() {

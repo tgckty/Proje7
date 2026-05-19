@@ -87,15 +87,13 @@ public class Elements {
     public WebElement billingAdressPhoneNumber;
     @FindBy(xpath = "//*[@id='billing-buttons-container']/input")
     public WebElement billingContainer;
-    //    @FindBy(id = " PickUpInStore")
-    //    public WebElement pickUpBox;
     @FindBy(xpath = " //*[@id='shipping-buttons-container']/input")
     public WebElement shippingContainer;
     @FindBy(id = "shippingoption_0")
     public WebElement shippingOption;
     @FindBy(xpath = " //*[@id='shipping-method-buttons-container']/input")
     public WebElement shippingMethodContainer;
-    @FindBy(id = " paymentmethod_0")
+    @FindBy(id = "paymentmethod_1")
     public WebElement paymentMethod;
     @FindBy(xpath = " //*[@id='payment-method-buttons-container']/input")
     public WebElement paymentMethodContainer;

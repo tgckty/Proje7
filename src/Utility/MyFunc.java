@@ -8,4 +8,9 @@ public class MyFunc {
             throw new RuntimeException(e);
         }
     }
+
+    public static int randomSayiUret(int a) { // 0dan a'ya kadar üretir. tek parametreli metot. a dahil değil
+
+        return (int) (Math.random() * a);
+    }
 }
