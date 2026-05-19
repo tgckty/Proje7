@@ -48,5 +48,64 @@ public class Elements {
     @FindBy(xpath = "//span[@class='price actual-price']")
     public List<WebElement> prices ;
 
+    // sevgi
+    @FindBy(linkText = "Computers")
+    public WebElement Computers;
+    @FindBy(linkText = "Notebooks")
+    public WebElement Notebooks;
+    @FindBy(css = "input[value='Add to cart']")
+    public WebElement addToCart;
+    @FindBy(css = "div[class='product-item']>div>a")
+    public WebElement laptop;
+    @FindBy(xpath = "//*[@id='bar-notification']/p/a")
+    public WebElement addToCartDogrulama;
+    @FindBy(xpath = "//*[@id='topcartlink']/a/span[1]")
+    public WebElement shoppingCartButonu;
+    @FindBy(xpath = "//table[@class='cart']//td[@class='product']//a[contains(text(), '14.1-inch Laptop')]")
+    public WebElement shoppingCartDogrulama;
+    @FindBy(id = "termsofservice")
+    public WebElement checkBox;
+    @FindBy(id = "checkout")
+    public WebElement checkOut;
+    @FindBy(xpath = " //input[@value='Checkout as Guest']")
+    public WebElement guestButton;
+    @FindBy(id = "BillingNewAddress_FirstName")
+    public WebElement billingAdresFirstName;
+    @FindBy(id = "BillingNewAddress_LastName")
+    public WebElement billingAdresLastName;
+    @FindBy(id = "BillingNewAddress_Email")
+    public WebElement billingAdresEmail;
+    @FindBy(id = "BillingNewAddress_CountryId")
+    public WebElement billingAdressSelectCountry;
+    @FindBy(id = "BillingNewAddress_City")
+    public WebElement billingAdresCity;
+    @FindBy(id = "BillingNewAddress_Address1")
+    public WebElement billingAdress;
+    @FindBy(id = "BillingNewAddress_ZipPostalCode")
+    public WebElement billingAdressPostalCode;
+    @FindBy(id = "BillingNewAddress_PhoneNumber")
+    public WebElement billingAdressPhoneNumber;
+    @FindBy(xpath = "//*[@id='billing-buttons-container']/input")
+    public WebElement billingContainer;
+    //    @FindBy(id = " PickUpInStore")
+    //    public WebElement pickUpBox;
+    @FindBy(xpath = " //*[@id='shipping-buttons-container']/input")
+    public WebElement shippingContainer;
+    @FindBy(id = "shippingoption_0")
+    public WebElement shippingOption;
+    @FindBy(xpath = " //*[@id='shipping-method-buttons-container']/input")
+    public WebElement shippingMethodContainer;
+    @FindBy(id = " paymentmethod_0")
+    public WebElement paymentMethod;
+    @FindBy(xpath = " //*[@id='payment-method-buttons-container']/input")
+    public WebElement paymentMethodContainer;
+    @FindBy(xpath = " //*[@id='payment-info-buttons-container']/input")
+    public WebElement infoContainer;
+    @FindBy(xpath = "  //*[@id='confirm-order-buttons-container']/input")
+    public WebElement confirmOrder;
+    @FindBy( css= "div[class='title']>strong")
+    public WebElement ekranYazi;
+
+
 
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -83,26 +84,82 @@ public class Testler extends BaseDriver {
     }
 
     @Test(priority = 5)       //Sevgi
-    public void OrderTest(){
+    public void OrderTest() throws IOException {
+        // 1-siteye git
+        // extends ile gidildi.
 
-        //    Senaryo:
-//
-// 1. Siteye gidin
-// 2. Login olun
-// 3. Computers - Notebooks menüsüne gidin
-// 4. "14.1-inch Laptop" ürününe tıklayın
-// 5. "Add to Cart" butonuna tıklayın
-// 6. Ürünün sepete eklendiğini doğrulayın
-// 7. "Shopping cart" butonuna tıklayın
-// 8. Ürünün sepette göründüğünü doğrulayın
-// 9. "I agree with the terms of service" checkbox'ını işaretleyin
-// 10. "Checkout" butonuna tıklayın
-// 11. Billing Address formunu doldurun
-// 12. "Continue" -> "Shipping Method" -> "Payment Method" -> "Confirm Order"
-// 13. "Your order has been successfully processed!" mesajını doğrulayın
-// 14. Screenshot alın
+        // 2-login ol
+        Elements elements = new Elements();
+        elements.login.click();
+        elements.email.sendKeys("testkullanicisi@gmail.com");
+        elements.password.sendKeys("123456");
+        elements.loginButton.click();
+
+        //  3-Computers-> Notebooks menüsüne git
+        elements.Computers.click();
+        elements.Notebooks.click();
+
+        // 4-"14.1-inch Laptop" ürününe tıkla
+        elements.laptop.click();
+
+        // 5- Add to cart butonuna tıklayın
+        elements.addToCart.click();
+
+        // 6- "Add to cart" sepette olduğunu doğrula
+        Assert.assertTrue(elements.addToCartDogrulama.isDisplayed(), "Ürün sepete eklenmedi!");
+
+        // 7-"Shopping cart" butonuna tıkla
+        elements.shoppingCartButonu.click();
+
+        // 8- "Shopping cart" sepette olduğunu doğrula
+        Assert.assertTrue(elements.shoppingCartDogrulama.isDisplayed(), "Ürün sepette bulunamadı!");
+
+        // 9- Checkbox u işaretle
+        elements.checkBox.click();
+
+        // 10- Checkout butonuna tıkla
+        elements.checkOut.click();
+        elements.guestButton.click();
+
+        // 11- Billing adres formu doldur
+        elements.billingAdresFirstName.sendKeys("test");
+        elements.billingAdresLastName.sendKeys("kullnacisi");
+        elements.billingAdresEmail.sendKeys("testkullanicisi@gmail.com");
+        Select countryDropdown = new Select(elements.billingAdressSelectCountry);  // Select Country
+        countryDropdown.selectByVisibleText("Turkey");
+        elements.billingAdresCity.sendKeys("Ankara");
+        elements.billingAdress.sendKeys("Ankara mah");
+        elements.billingAdressPostalCode.sendKeys("01000");
+        elements.billingAdressPhoneNumber.sendKeys("55555555");
+
+        // 12- Continue-> Shipping Method-> Payment Method-> Confirm Order
+        bekle.until(ExpectedConditions.elementToBeClickable(elements.billingContainer)).click();
+//      elements.pickUpBox.click();
+        elements.shippingContainer.click();
+        elements.shippingOption.click();
+        bekle.until(ExpectedConditions.elementToBeClickable(elements.shippingMethodContainer)).click();
+//      elements.paymentMethod.click();
+//      bekle.until(ExpectedConditions.elementToBeClickable(elements.paymentMethod)).click();
+        bekle.until(ExpectedConditions.elementToBeClickable(elements.paymentMethodContainer)).click();
+        elements.infoContainer.click();
+        elements.confirmOrder.click();
+
+        // 13- "Your order has been placed! mesajını doğrula
+        bekle.until(ExpectedConditions.urlContains("completed"));
+        Assert.assertEquals(elements.ekranYazi.getText(),
+                "Your order has been successfully processed!", "Oluşan Mesajlar Eşleşmiyor");
+
+        // 14- screenshot al
+        LocalDateTime dt = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy_hh-mm");
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File hafizadakiEkranGoruntusu = ts.getScreenshotAs(OutputType.FILE);
+        String path = "ekranGoruntuleri/Screenshot_" + dt.format(format) + ".jpg";
+        FileUtils.copyFile(hafizadakiEkranGoruntusu, new File(path));
+
 
     }
+
 
 
 
