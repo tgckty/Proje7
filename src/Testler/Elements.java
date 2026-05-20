@@ -105,8 +105,6 @@ public class Elements {
     public WebElement ekranYazi;
 
     // Buraks elements
-    @FindBy(linkText = "Books")
-    public WebElement Books;
     @FindBy(css = "div[class='item-box']:nth-child(1) img")
     public WebElement book1;
     @FindBy(xpath = "//input[@value='Add to compare list']")
