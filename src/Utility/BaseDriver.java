@@ -48,6 +48,12 @@ public class BaseDriver {
         elements.loginButton.click();
     }
 
+    public void LogOut() {
+
+        Elements elements = new Elements();
+        elements.logout.click();
+    }
+
     public void EkranGoruntusuAl() throws IOException {
         LocalDateTime dt = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy_hh-mm");
