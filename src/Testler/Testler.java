@@ -71,11 +71,14 @@ public class Testler extends BaseDriver {
 
     @Test(priority = 5)       //Sevgi
     public void OrderTest() throws IOException {
-        // 1-siteye git // extends ile gidildi.
+        // 1-siteye git --> extends ile gidildi.
 
         // 2-login ol
         Elements elements = new Elements();
-        LoginOl();
+        elements.login.click();
+        elements.email.sendKeys("testkullanicisi@gmail.com");
+        elements.password.sendKeys("123456");
+        elements.loginButton.click();
 
         //  3-Computers-> Notebooks menüsüne git
         elements.Computers.click();
@@ -105,7 +108,7 @@ public class Testler extends BaseDriver {
 
         // 11- Billing adres formu doldur
         elements.billingAdresFirstName.sendKeys("test");
-        elements.billingAdresLastName.sendKeys("kullnacisi");
+        elements.billingAdresLastName.sendKeys("kullanicisi");
         elements.billingAdresEmail.sendKeys("testkullanicisi@gmail.com");
         Select countryDropdown = new Select(elements.billingAdressSelectCountry);  // Select Country
         countryDropdown.selectByVisibleText("Turkey");
@@ -124,7 +127,7 @@ public class Testler extends BaseDriver {
         elements.infoContainer.click();
         elements.confirmOrder.click();
 
-        // 13- "Your order has been placed! mesajını doğrula
+        // 13- "Your order has been successfully processed!" mesajını doğrula
         bekle.until(ExpectedConditions.urlContains("completed"));
         Assert.assertEquals(elements.ekranYazi.getText(),
                 "Your order has been successfully processed!", "Oluşan Mesajlar Eşleşmiyor");

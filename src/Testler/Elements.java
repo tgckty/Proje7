@@ -67,7 +67,7 @@ public class Elements {
     public WebElement checkBox;
     @FindBy(id = "checkout")
     public WebElement checkOut;
-    @FindBy(xpath = " //input[@value='Checkout as Guest']")
+    @FindBy(xpath = "//input[@value='Checkout as Guest']")
     public WebElement guestButton;
     @FindBy(id = "BillingNewAddress_FirstName")
     public WebElement billingAdresFirstName;
