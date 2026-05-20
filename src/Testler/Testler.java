@@ -166,12 +166,17 @@ public class Testler extends BaseDriver {
     @Test(priority = 8)    //Zeynep
     public void WishlistTest() {
         Elements elements = new Elements();
-        LoginOl();
         //  Senaryo:
         //  1. Login olun
+        LoginOl();
         //  2. "Apparel & Shoes" kategorisine gidin
+        elements.apparelNshoes.click();
         //  3. Bir ürünü "Add to wishlist" ile ekleyin
+        elements.DotTop.click();
+        elements.addToWishList.click();
         //  4. "Wishlist" sayfasına gidin
+        elements.wishList.click();
         //  5. Ürünün wishlist'te göründüğünü doğrulayın
+        Assert.assertEquals(elements.wishListAssertion.getText(), "Your wishlist URL for sharing:", "Wishlist is empty!");
     }
 }

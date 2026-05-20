@@ -104,6 +104,21 @@ public class Elements {
     @FindBy( css= "div[class='title']>strong")
     public WebElement ekranYazi;
 
+    //zeynep
+
+    @FindBy(css = "[class='list']>li+li+li+li>a")
+    public WebElement apparelNshoes;
+    @FindBy(css = "[href='/50s-rockabilly-polka-dot-top-jr-plus-size']")
+    public WebElement DotTop;
+    @FindBy(css = "[id ='add-to-wishlist-button-5']")
+    public WebElement addToWishList;
+    @FindBy (css = ".ico-wishlist>span ")
+    public  WebElement wishList;
+    @FindBy(css = "[class='wishlist-content']+div>p>span")
+    public WebElement wishListAssertion;
+
+
+
 
 
 }
