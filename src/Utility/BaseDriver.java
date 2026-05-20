@@ -39,6 +39,12 @@ public class BaseDriver {
         driver.get("https://demowebshop.tricentis.com/");
     }
 
+    public void LogOut() {
+
+        Elements elements = new Elements();
+        elements.logout.click();
+    }
+
     public void LoginOl() {
 
         Elements elements = new Elements();
