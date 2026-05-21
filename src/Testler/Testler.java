@@ -24,7 +24,7 @@ public class Testler extends BaseDriver {
         elements.gender.click();
         elements.firstName.sendKeys("Test");
         elements.lastName.sendKeys("Kullanıcısı");
-        elements.email.sendKeys("testkullanici"+dt.format(format)+"@gmail.com");
+        elements.email.sendKeys("testkullanici" + dt.format(format) + "@gmail.com");
         elements.password.sendKeys("123123");
         elements.confirmPassword.sendKeys("123123");
         elements.registerButton.click();
@@ -71,50 +71,26 @@ public class Testler extends BaseDriver {
 
     @Test(priority = 5)       //Sevgi
     public void OrderTest() throws IOException {
-        // 1-siteye git // extends ile gidildi.
-
-        // 2-login ol
         Elements elements = new Elements();
         LoginOl();
-
-        //  3-Computers-> Notebooks menüsüne git
         elements.Computers.click();
         elements.Notebooks.click();
-
-        // 4-"14.1-inch Laptop" ürününe tıkla
         elements.laptop.click();
-
-        // 5- Add to cart butonuna tıklayın
         elements.addToCart.click();
-
-        // 6- "Add to cart" sepette olduğunu doğrula
         Assert.assertTrue(elements.addToCartDogrulama.isDisplayed(), "Ürün sepete eklenmedi!");
-
-        // 7-"Shopping cart" butonuna tıkla
         elements.shoppingCartButonu.click();
-
-        // 8- "Shopping cart" sepette olduğunu doğrula
         Assert.assertTrue(elements.shoppingCartDogrulama.isDisplayed(), "Ürün sepette bulunamadı!");
-
-        // 9- Checkbox u işaretle
         elements.checkBox.click();
-
-        // 10- Checkout butonuna tıkla
         elements.checkOut.click();
-        elements.guestButton.click();
-
-        // 11- Billing adres formu doldur
-        elements.billingAdresFirstName.sendKeys("test");
-        elements.billingAdresLastName.sendKeys("kullnacisi");
-        elements.billingAdresEmail.sendKeys("testkullanicisi@gmail.com");
-        Select countryDropdown = new Select(elements.billingAdressSelectCountry);  // Select Country
+        Select billingAddressDropdown = new Select(elements.newAddress);
+        billingAddressDropdown.selectByVisibleText("New Address");
+        // kullanici bilgileri LogiOl(); --> ile dolduruldu
+        Select countryDropdown = new Select(elements.billingAdressSelectCountry);
         countryDropdown.selectByVisibleText("Turkey");
         elements.billingAdresCity.sendKeys("Ankara");
         elements.billingAdress.sendKeys("Ankara mah");
         elements.billingAdressPostalCode.sendKeys("01000");
         elements.billingAdressPhoneNumber.sendKeys("55555555");
-
-        // 12- Continue-> Shipping Method-> Payment Method-> Confirm Order
         bekle.until(ExpectedConditions.elementToBeClickable(elements.billingContainer)).click();
         elements.shippingContainer.click();
         elements.shippingOption.click();
@@ -123,14 +99,10 @@ public class Testler extends BaseDriver {
         bekle.until(ExpectedConditions.elementToBeClickable(elements.paymentMethodContainer)).click();
         elements.infoContainer.click();
         elements.confirmOrder.click();
-
-        // 13- "Your order has been placed! mesajını doğrula
         bekle.until(ExpectedConditions.urlContains("completed"));
         Assert.assertEquals(elements.ekranYazi.getText(),
                 "Your order has been successfully processed!", "Oluşan Mesajlar Eşleşmiyor");
-
-        // 14- screenshot al
-        EkranGoruntusuAl();
+        //EkranGoruntusuAl();
     }
 
 
