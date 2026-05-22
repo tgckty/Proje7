@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Testler extends BaseDriver {
 
@@ -139,11 +140,29 @@ public class Testler extends BaseDriver {
     public void WishlistTest() {
         Elements elements = new Elements();
         LoginOl();
-        //  Senaryo:
-        //  1. Login olun
+
         //  2. "Apparel & Shoes" kategorisine gidin
+        elements.apparelNshoes.click();
         //  3. Bir ürünü "Add to wishlist" ile ekleyin
+        String urunAdi = elements.DotTop.getText();
+        elements.DotTop.click();
+        elements.addToWishList.click();
         //  4. "Wishlist" sayfasına gidin
+        elements.wishList.click();
         //  5. Ürünün wishlist'te göründüğünü doğrulayın
+        List<WebElement> wishListListe = elements.productList;
+        boolean bulundu =false;
+        for (WebElement e : wishListListe){
+            if (e.getText().equals(urunAdi)){
+                System.out.println(urunAdi);
+                System.out.println(e.getText());
+                bulundu= true;
+                break;
+            }
+        }
+
+        if (!bulundu)
+            Assert.fail("wishliste eklenen ürün listede bulunamadı .") ;
+        LogOut();
     }
 }

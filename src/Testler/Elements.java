@@ -107,4 +107,17 @@ public class Elements {
     public WebElement newAddress;
 
 
+    //zeynep
+
+    @FindBy(css = "[class='list']>li+li+li+li>a")
+    public WebElement apparelNshoes;
+    @FindBy(linkText = "50's Rockabilly Polka Dot Top JR Plus Size")
+    public WebElement DotTop;
+    @FindBy(css = "[id ='add-to-wishlist-button-5']")
+    public WebElement addToWishList;
+    @FindBy (css = ".ico-wishlist>span ")
+    public  WebElement wishList;
+    @FindBy(xpath = "//td[@class='product']/a")
+    public List<WebElement> productList;
+
 }
