@@ -103,7 +103,8 @@ public class Elements {
     public WebElement confirmOrder;
     @FindBy( css= "div[class='title']>strong")
     public WebElement ekranYazi;
-
+    @FindBy(id = "billing-address-select")
+    public WebElement newAddress;
 
 
 }
