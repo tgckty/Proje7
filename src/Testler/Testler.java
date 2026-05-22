@@ -134,6 +134,20 @@ public class Testler extends BaseDriver {
         //  2. İki farklı ürün için "Add to compare list" butonuna tıklayın
         //  3. "Compare products list" sayfasına gidin
         //  4. Eklenen iki ürünün listede göründüğünü doğrulayın
+        elements.books.click();
+        String kitap1 = elements.kitaplar.get(0).getText();
+        elements.kitaplar.get(0).click();
+        elements.addToCompareListButton.click();
+        elements.books.click();
+        String kitap2 = elements.kitaplar.get(1).getText();
+        elements.kitaplar.get(1).click();
+        elements.addToCompareListButton.click();
+        List<String> karsilastirmaListesiKitapIsimleri = new ArrayList<>();
+        for (WebElement e : elements.karsilastirmaListesi) {
+            karsilastirmaListesiKitapIsimleri.add(e.getText());
+        }
+        Assert.assertTrue(karsilastirmaListesiKitapIsimleri.contains(kitap1));
+        Assert.assertTrue(karsilastirmaListesiKitapIsimleri.contains(kitap2));
     }
 
     @Test(priority = 8)    //Zeynep

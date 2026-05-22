@@ -78,19 +78,19 @@ public class Elements {
     public WebElement billingAdressPhoneNumber;
     @FindBy(xpath = "//*[@id='billing-buttons-container']/input")
     public WebElement billingContainer;
-    @FindBy(xpath = " //*[@id='shipping-buttons-container']/input")
+    @FindBy(xpath = "//*[@id='shipping-buttons-container']/input")
     public WebElement shippingContainer;
     @FindBy(id = "shippingoption_0")
     public WebElement shippingOption;
-    @FindBy(xpath = " //*[@id='shipping-method-buttons-container']/input")
+    @FindBy(xpath = "//*[@id='shipping-method-buttons-container']/input")
     public WebElement shippingMethodContainer;
     @FindBy(id = "paymentmethod_1")
     public WebElement paymentMethod;
-    @FindBy(xpath = " //*[@id='payment-method-buttons-container']/input")
+    @FindBy(xpath = "//*[@id='payment-method-buttons-container']/input")
     public WebElement paymentMethodContainer;
-    @FindBy(xpath = " //*[@id='payment-info-buttons-container']/input")
+    @FindBy(xpath = "//*[@id='payment-info-buttons-container']/input")
     public WebElement infoContainer;
-    @FindBy(xpath = "  //*[@id='confirm-order-buttons-container']/input")
+    @FindBy(xpath = "//*[@id='confirm-order-buttons-container']/input")
     public WebElement confirmOrder;
     @FindBy(css = "div[class='title']>strong")
     public WebElement ekranYazi;
@@ -109,5 +109,14 @@ public class Elements {
     public WebElement wishList;
     @FindBy(xpath = "//td[@class='product']/a")
     public List<WebElement> productList;
+
+    //Burak
+    @FindBy(xpath = "//h2[@class='product-title']/a")
+    public List<WebElement> kitaplar;
+    @FindBy(xpath = "//input[@value='Add to compare list']")
+    public WebElement addToCompareListButton;
+    @FindBy(xpath = "//td[@class='a-center']/a")
+    public List<WebElement> karsilastirmaListesi;
+
 
 }
