@@ -1,7 +1,6 @@
 package Testler;
 
 import Utility.BaseDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,7 +45,7 @@ public class Elements {
     @FindBy(id = "products-orderby")
     public WebElement sortBy;
     @FindBy(xpath = "//span[@class='price actual-price']")
-    public List<WebElement> prices ;
+    public List<WebElement> prices;
 
     // sevgi
     @FindBy(linkText = "Computers")
@@ -67,14 +66,6 @@ public class Elements {
     public WebElement checkBox;
     @FindBy(id = "checkout")
     public WebElement checkOut;
-    @FindBy(xpath = " //input[@value='Checkout as Guest']")
-    public WebElement guestButton;
-    @FindBy(id = "BillingNewAddress_FirstName")
-    public WebElement billingAdresFirstName;
-    @FindBy(id = "BillingNewAddress_LastName")
-    public WebElement billingAdresLastName;
-    @FindBy(id = "BillingNewAddress_Email")
-    public WebElement billingAdresEmail;
     @FindBy(id = "BillingNewAddress_CountryId")
     public WebElement billingAdressSelectCountry;
     @FindBy(id = "BillingNewAddress_City")
@@ -101,22 +92,21 @@ public class Elements {
     public WebElement infoContainer;
     @FindBy(xpath = "  //*[@id='confirm-order-buttons-container']/input")
     public WebElement confirmOrder;
-    @FindBy( css= "div[class='title']>strong")
+    @FindBy(css = "div[class='title']>strong")
     public WebElement ekranYazi;
     @FindBy(id = "billing-address-select")
     public WebElement newAddress;
 
 
     //zeynep
-
     @FindBy(css = "[class='list']>li+li+li+li>a")
     public WebElement apparelNshoes;
     @FindBy(linkText = "50's Rockabilly Polka Dot Top JR Plus Size")
     public WebElement DotTop;
     @FindBy(css = "[id ='add-to-wishlist-button-5']")
     public WebElement addToWishList;
-    @FindBy (css = ".ico-wishlist>span ")
-    public  WebElement wishList;
+    @FindBy(css = ".ico-wishlist>span ")
+    public WebElement wishList;
     @FindBy(xpath = "//td[@class='product']/a")
     public List<WebElement> productList;
 

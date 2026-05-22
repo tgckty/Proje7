@@ -125,7 +125,6 @@ public class Testler extends BaseDriver {
     }
 
 
-
     @Test(priority = 7)   //Burak
     public void UrunKarsilastirma() {
         Elements elements = new Elements();
@@ -141,7 +140,6 @@ public class Testler extends BaseDriver {
     public void WishlistTest() {
         Elements elements = new Elements();
         LoginOl();
-
         //  2. "Apparel & Shoes" kategorisine gidin
         elements.apparelNshoes.click();
         //  3. Bir ürünü "Add to wishlist" ile ekleyin
@@ -152,16 +150,16 @@ public class Testler extends BaseDriver {
         elements.wishList.click();
         //  5. Ürünün wishlist'te göründüğünü doğrulayın
         List<WebElement> wishListListe = elements.productList;
-        boolean bulundu =false;
-        for (WebElement e : wishListListe){
-            if (e.getText().equals(urunAdi)){
-                bulundu= true;
+        boolean bulundu = false;
+        for (WebElement e : wishListListe) {
+            if (e.getText().equals(urunAdi)) {
+                bulundu = true;
                 break;
             }
         }
 
         if (!bulundu)
-            Assert.fail("wishliste eklenen ürün listede bulunamadı .") ;
+            Assert.fail("wishliste eklenen ürün listede bulunamadı .");
         LogOut();
     }
 }
