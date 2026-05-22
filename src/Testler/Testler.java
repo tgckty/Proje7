@@ -155,8 +155,6 @@ public class Testler extends BaseDriver {
         boolean bulundu =false;
         for (WebElement e : wishListListe){
             if (e.getText().equals(urunAdi)){
-                System.out.println(urunAdi);
-                System.out.println(e.getText());
                 bulundu= true;
                 break;
             }
