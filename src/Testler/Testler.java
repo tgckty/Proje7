@@ -102,7 +102,7 @@ public class Testler extends BaseDriver {
         bekle.until(ExpectedConditions.urlContains("completed"));
         Assert.assertEquals(elements.ekranYazi.getText(),
                 "Your order has been successfully processed!", "Oluşan Mesajlar Eşleşmiyor");
-        //EkranGoruntusuAl();
+        EkranGoruntusuAl();
     }
 
 
